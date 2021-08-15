@@ -20,7 +20,7 @@ const routes: Routes = [
         component: FirstParentComponent,
       },
       {
-        path: 'second-parent',
+        path: 'second-parent/:id',
         component: SecondParentComponent,
       }
     ]

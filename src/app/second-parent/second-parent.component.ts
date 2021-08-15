@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-second-parent',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecondParentComponent implements OnInit {
 
-  constructor() { 
+  constructor(private route: ActivatedRoute) { 
     console.log('constructor second')
+    this.route.params.subscribe(
+      params => {
+          let id = +params['id'];
+          console.log('новый id', id);
+          //this.getProduct(id);
+      }
+  );
+
   }
 
   ngOnInit(): void {
@@ -41,6 +50,6 @@ export class SecondParentComponent implements OnInit {
   }
 
   private log(msg: string) {
-      console.log(". " + msg);
+      //console.log(". " + msg);
   }
 }
